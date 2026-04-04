@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>订单提交成功 | Oil of You</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="announcement">Oil of You 订单已提交 | 当前为演示模式</header>
+
+  <main class="success-wrap">
+    <section class="flow-card success-card">
+      <p class="eyebrow">Order received</p>
+      <h1>你的藏品订单已经记录</h1>
+      <p id="orderIdText">订单编号：--</p>
+      <p id="orderMetaText">我们会在 24 小时内通过你填写的联系方式确认装裱与物流细节。</p>
+      <div class="success-actions">
+        <a class="checkout-btn link-btn" href="./index.html">返回首页</a>
+        <a class="ghost-btn" href="./cart.html">查看收藏袋</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="./store-data.js"></script>
+  <script>
+    const orderId = new URLSearchParams(window.location.search).get("orderId") || "OOY-DEMO";
+    const lastOrder = window.loadLastOrder();
+    const orderIdText = document.getElementById("orderIdText");
+    const orderMetaText = document.getElementById("orderMetaText");
+
+    orderIdText.textContent = `订单编号：${orderId}`;
+
+    if (lastOrder) {
+      const customer = lastOrder.name || "收藏家";
+      const delivery = lastOrder.delivery || "配送方式";
+      const total = window.formatPrice(lastOrder.total || 0);
+      orderMetaText.textContent = `${customer}，我们会在 24 小时内联系你确认 ${delivery}，订单金额约 ${total}。`;
+    }
+  </script>
+</body>
+</html>
