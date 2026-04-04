@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>结账 | Oil of You</title>
+  <meta name="description" content="填写 Oil of You 油画订单的收件、装裱与配送信息。" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="announcement">Oil of You 结账页 | 当前仅展示演示流程</header>
+
+  <nav class="nav">
+    <a class="brand" href="./index.html" aria-label="Oil of You 首页">
+      <span class="brand-mark">OIL OF YOU</span>
+      <span class="brand-sub">www.oilofyou.com</span>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">回到首页</a>
+      <a href="./cart.html">返回收藏袋</a>
+    </div>
+  </nav>
+
+  <main class="flow-main">
+    <section class="flow-card">
+      <p class="eyebrow">Checkout</p>
+      <h1>填写收件与装裱信息</h1>
+      <p class="small">提交后我们会在 24 小时内与你确认尺寸、装框偏好和配送方式。</p>
+
+      <form id="checkoutForm" class="checkout-form">
+        <label>收件人姓名<input required name="name" type="text" placeholder="例如：林清秋" /></label>
+        <label>邮箱<input required name="email" type="email" placeholder="you@example.com" /></label>
+        <label>手机号<input required name="phone" type="tel" placeholder="138 0000 0000" /></label>
+        <label>详细地址<input required name="address" type="text" placeholder="街道 / 小区 / 门牌号" /></label>
+
+        <div class="form-row">
+          <label>城市<input required name="city" type="text" placeholder="上海" /></label>
+          <label>省份<input required name="province" type="text" placeholder="上海市" /></label>
+          <label>邮编<input required name="postalCode" type="text" placeholder="200000" /></label>
+        </div>
+
+        <label>
+          装裱偏好 / 留言
+          <textarea
+            name="notes"
+            placeholder="例如：希望胡桃木窄框、偏暖光环境、挂在沙发背后主墙。"
+          ></textarea>
+        </label>
+
+        <h3>配送方式</h3>
+        <label class="radio-line">
+          <input type="radio" name="delivery" value="顺丰艺术品专送" checked />
+          顺丰艺术品专送（中国大陆）
+        </label>
+        <label class="radio-line">
+          <input type="radio" name="delivery" value="DHL 全球配送" />
+          DHL 全球配送
+        </label>
+
+        <h3>支付方式（演示）</h3>
+        <label class="radio-line">
+          <input type="radio" name="payment" value="银行卡支付" checked />
+          银行卡支付（模拟）
+        </label>
+        <label class="radio-line">
+          <input type="radio" name="payment" value="PayPal 支付" />
+          PayPal（模拟）
+        </label>
+
+        <button class="checkout-btn" type="submit">提交演示订单</button>
+      </form>
+    </section>
+
+    <aside class="flow-card summary-card">
+      <h2>订单概览</h2>
+      <div id="checkoutItems" class="mini-items"></div>
+      <div class="summary-row"><span>作品小计</span><strong id="ckSubtotal">¥0</strong></div>
+      <div class="summary-row"><span>艺术品物流</span><strong id="ckShipping">¥0</strong></div>
+      <div class="summary-row"><span>运输保险</span><strong id="ckInsurance">¥0</strong></div>
+      <div class="summary-row total"><span>预计合计</span><strong id="ckTotal">¥0</strong></div>
+    </aside>
+  </main>
+
+  <script src="./store-data.js"></script>
+  <script src="./checkout.js"></script>
+</body>
+</html>
