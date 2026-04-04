@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>收藏袋 | Oil of You</title>
+  <meta name="description" content="查看你在 Oil of You 选择的原创油画与订单概览。" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="announcement">Oil of You 收藏袋 | 原作附真迹证书与专业防震包装</header>
+
+  <nav class="nav">
+    <a class="brand" href="./index.html" aria-label="Oil of You 首页">
+      <span class="brand-mark">OIL OF YOU</span>
+      <span class="brand-sub">www.oilofyou.com</span>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">继续选画</a>
+      <a href="./checkout.html">去结账</a>
+    </div>
+  </nav>
+
+  <main class="flow-main">
+    <section class="flow-card">
+      <p class="eyebrow">Cart</p>
+      <h1>你的收藏袋</h1>
+      <p class="small">可在这里调整数量，再继续进入演示结账流程。</p>
+      <div id="cartPageItems" class="cart-items"></div>
+    </section>
+
+    <aside class="flow-card summary-card">
+      <h2>订单概览</h2>
+      <div class="summary-row"><span>作品小计</span><strong id="sumSubtotal">¥0</strong></div>
+      <div class="summary-row"><span>艺术品物流</span><strong id="sumShipping">¥0</strong></div>
+      <div class="summary-row"><span>运输保险</span><strong id="sumInsurance">¥0</strong></div>
+      <div class="summary-row total"><span>预计合计</span><strong id="sumTotal">¥0</strong></div>
+      <a class="checkout-btn link-btn" href="./checkout.html">进入结账</a>
+      <p class="small">当前是前端演示站，提交订单后不会产生真实支付。</p>
+    </aside>
+  </main>
+
+  <script src="./store-data.js"></script>
+  <script src="./cart.js"></script>
+</body>
+</html>
