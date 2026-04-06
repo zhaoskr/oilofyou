@@ -1,6 +1,6 @@
 const products = window.OIL_OF_YOU_PRODUCTS;
-const categories = ["全部", ...new Set(products.map((product) => product.category))];
-let selectedCategory = "全部";
+const categories = ["All", ...new Set(products.map((product) => product.category))];
+let selectedCategory = "All";
 let searchText = "";
 const cart = window.loadCartMap();
 
@@ -36,7 +36,7 @@ function buildCategoryChips() {
 function renderProducts() {
   const query = searchText.trim().toLowerCase();
   const filteredProducts = products.filter((product) => {
-    const hitCategory = selectedCategory === "全部" || product.category === selectedCategory;
+    const hitCategory = selectedCategory === "All" || product.category === selectedCategory;
     const haystack = [
       product.name,
       product.category,
@@ -55,8 +55,8 @@ function renderProducts() {
   if (!filteredProducts.length) {
     productGrid.innerHTML = `
       <article class="empty-card">
-        <h3>没有找到匹配作品</h3>
-        <p>试试搜索“风景”“抽象”“花卉”，或者切换到其他系列。</p>
+        <h3>No matching paintings found</h3>
+        <p>Try searching for “portrait”, “landscape”, “abstract”, or “custom”.</p>
       </article>
     `;
     return;
@@ -83,7 +83,7 @@ function renderProducts() {
       </div>
       <div class="product-bottom">
         <p class="product-price">${window.formatPrice(product.price)}</p>
-        <button type="button">加入收藏袋</button>
+        <button type="button">Add to Art Bag</button>
       </div>
     `;
 
@@ -122,8 +122,8 @@ function renderCart() {
   if (!items.length) {
     cartItems.innerHTML = `
       <div class="empty-card compact">
-        <h3>收藏袋还是空的</h3>
-        <p>先选一幅能让空间安静下来的画，我们再一起结账。</p>
+        <h3>Your art bag is empty</h3>
+        <p>Choose a custom portrait or an original painting and we will hold it here for checkout.</p>
       </div>
     `;
     return;
@@ -145,12 +145,12 @@ function renderCart() {
       <div class="cart-meta">
         <span>${window.formatPrice(item.price)}</span>
         <div class="qty">
-          <button type="button" aria-label="减少数量">-</button>
+          <button type="button" aria-label="Decrease quantity">-</button>
           <span>${item.qty}</span>
-          <button type="button" aria-label="增加数量">+</button>
+          <button type="button" aria-label="Increase quantity">+</button>
         </div>
       </div>
-      <span>小计：<strong>${window.formatPrice(item.total)}</strong></span>
+      <span>Line total: <strong>${window.formatPrice(item.total)}</strong></span>
     `;
 
     const [minusButton, plusButton] = row.querySelectorAll("button");
